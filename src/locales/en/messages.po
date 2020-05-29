@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2020-05-28 18:12+0700\n"
+"Mime-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/pages/products/view.tsx:35
+msgid "Are you sure you want to delete this product?"
+msgstr "Are you sure you want to delete this product?"
+
+#: src/pages/products/view.tsx:34
+msgid "Delete product"
+msgstr "Delete product"
+
+#: src/pages/products/view.tsx:33
+msgid "Edit product"
+msgstr "Edit product"
+
+#: src/utils/http.ts:18
+msgid "Fields validation error"
+msgstr "Fields validation error"
+
+#: src/components/common/HeaderLayout.tsx:10
+msgid "Home"
+msgstr "Home"
+
+#: src/pages/products/list.tsx:71
+msgid "New product"
+msgstr "New product"
+
+#: src/pages/products/view.tsx:35
+msgid "No"
+msgstr "No"
+
+#: src/components/products/ProductViewForm.tsx:14
+msgid "Product"
+msgstr "Product"
+
+#: src/components/products/ProductEditableForm.tsx:14
+msgid "Product name"
+msgstr "Product name"
+
+#: src/components/products/ProductEditableForm.tsx:7
+msgid "Product not found"
+msgstr "Product not found"
+
+#: src/components/common/HeaderLayout.tsx:11
+msgid "Products"
+msgstr "Products"
+
+#: src/components/products/ProductEditableForm.tsx:18
+msgid "Save product"
+msgstr "Save product"
+
+#: src/pages/products/list.tsx:45
+msgid "Search"
+msgstr "Search"
+
+#: src/pages/products/view.tsx:35
+msgid "Yes"
+msgstr "Yes"
