@@ -3,7 +3,7 @@ import HomePage from "../pages/home";
 import React from "react";
 import ProductsNavigation from "./ProductsNavigation";
 
-const RootNavigation = () => {
+const RootNavigation = (): JSX.Element => {
     return <Switch>
         <Route path="/products">
             <ProductsNavigation/>

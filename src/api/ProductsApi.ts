@@ -7,14 +7,10 @@ import {Page} from "../dtos/CommonDtos";
 const rFetch = retryFetch(fetch);
 
 export class ProductsApi {
-    private readonly serverUrl: string;
-
-    constructor(serverUrl: string) {
-        this.serverUrl = serverUrl;
-    }
+    private readonly rootPath: string = "/dealer-api/v1";
 
     async getProduct(uuid: string): Promise<ProductInfoDto> {
-        const response = await rFetch(`${this.serverUrl}/products/${uuid}`, {
+        const response = await rFetch(`${this.rootPath}/products/${uuid}`, {
             method: 'GET',
         });
         await assertOkResponse(response);
@@ -23,7 +19,7 @@ export class ProductsApi {
     }
 
     async saveProduct(uuid: string, dto: ProductSaveDto): Promise<void> {
-        const response = await rFetch(`${this.serverUrl}/products/${uuid}`, {
+        const response = await rFetch(`${this.rootPath}/products/${uuid}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,14 +30,14 @@ export class ProductsApi {
     }
 
     async deleteProduct(uuid: string): Promise<void> {
-        const response = await rFetch(`${this.serverUrl}/products/${uuid}`, {
+        const response = await rFetch(`${this.rootPath}/products/${uuid}`, {
             method: 'DELETE'
         });
         await assertOkResponse(response);
     }
 
     async getProducts(filter: ProductListSearchParams): Promise<Page<ProductListItemDto>> {
-        let url = new URL(`${this.serverUrl}/products/`);
+        const url = new URL(`${this.rootPath}/products/`, document.baseURI);
         url.searchParams.append("page", filter.page.toString());
         url.searchParams.append("pageSize", filter.pageSize.toString());
         if (filter.name) {

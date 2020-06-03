@@ -6,7 +6,7 @@ class Product {
     @observable uuid: string
     @observable name: string
 
-    private constructor(uuid: string, name: string = "") {
+    private constructor(uuid: string, name = "") {
         this.uuid = uuid
         this.name = name
     }

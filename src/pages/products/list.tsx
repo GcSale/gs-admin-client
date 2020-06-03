@@ -40,23 +40,22 @@ const ProductsListPage = observer(() => {
 
     return <div>
         <Form>
-            <Input value={productsListStore.searchName}
+            <Input value={productsListStore.searchName || ''}
                    onChange={(e) => {
                        productsListStore.searchName = e.target.value
                    }}
                    focus={true}
-                   icon='search'
-            >
-                <input/>
-                <Button type="submit"
-                        onClick={() => {
-                            history.push(`/products?${buildQueryString({
-                                ...productsListStore.pageRequest,
-                                page: 0
-                            })}`)}
-                        }><Trans>Search</Trans></Button>
-            </Input>
+            />
 
+            <Button type="submit"
+                    onClick={() => {
+                        history.push(`/products?${buildQueryString({
+                            ...productsListStore.pageRequest,
+                            page: 0
+                        })}`)
+                    }
+                    }><Trans>Search</Trans>
+            </Button>
         </Form>
         <Table celled>
 
