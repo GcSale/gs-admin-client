@@ -8,6 +8,7 @@ COPY .babelrc .linguirc tsconfig.json .eslintrc.json /app/
 COPY src /app/src
 COPY public /app/public
 RUN npm run lint
+RUN npm run lingui-compile
 RUN npm run build
 
 FROM node:14
