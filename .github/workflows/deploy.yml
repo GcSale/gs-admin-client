@@ -25,7 +25,7 @@ jobs:
       - name: Send event to deploy service
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.GCSALE_REPO_ACCESS_READ }}
+          token: ${{ secrets.GCSALE_REPO_ACCESS_FULL }}
           repository: de1mos242/little-diary-root
           event-type: gs-admin-client-released
           client-payload: '{"version": "${{ env.RELEASE_VERSION }}"}'
