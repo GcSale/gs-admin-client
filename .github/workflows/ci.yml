@@ -1,4 +1,4 @@
-name: Test workflow
+name: Test workflow v2
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.17.2
         env:
-          GITHUB_TOKEN: ${{ secrets.GCSALE_FULL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: "dfsfa"
           WITH_V: true
           DEFAULT_BUMP: patch
           RELEASE_BRANCHES: master
