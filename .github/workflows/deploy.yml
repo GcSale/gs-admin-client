@@ -24,5 +24,5 @@ jobs:
         with:
           token: ${{ secrets.GCSALE_REPO_ACCESS_READ }}
           repository: de1mos242/little-diary-root
-          event-type: web-app-released
+          event-type: gs-admin-client-released
           client-payload: '{"version": "${{ env.RELEASE_VERSION }}"}'
