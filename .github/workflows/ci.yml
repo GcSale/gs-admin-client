@@ -19,7 +19,7 @@ jobs:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.17.2
         env:
-          GITHUB_TOKEN: ${{ secrets.GCSALE_REPO_ACCESS_FULL }}
+          GITHUB_TOKEN: ${{ secrets.GCSALE_FULL_ACCESS_TOKEN }}
           WITH_V: true
           DEFAULT_BUMP: patch
           RELEASE_BRANCHES: master
