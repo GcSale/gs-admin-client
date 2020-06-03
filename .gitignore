@@ -125,3 +125,6 @@ dist
 # IntelliJ IDEA
 .idea
 *.iml
+
+src/locales/_build
+src/locales/**/*.js

@@ -12,27 +12,27 @@ export class UiStore {
         this.rootStore = rootStore;
     }
 
-    @computed get isLoading() {
+    @computed get isLoading(): boolean {
         return this.loadingsCount > 0;
     }
 
-    @computed get hasErrorMessage() {
+    @computed get hasErrorMessage(): boolean {
         return this.errorMessage != null && this.errorMessage.length > 0;
     }
 
-    @action.bound showLoading() {
+    @action.bound showLoading(): void {
         this.loadingsCount += 1;
     }
 
-    @action.bound hideLoading() {
+    @action.bound hideLoading(): void {
         this.loadingsCount -= 1;
     }
 
-    @action.bound useLanguage(code: string) {
+    @action.bound useLanguage(code: string): void {
         this.currentLanguage = code
     }
 
-    @action.bound catchError(err: Error) {
+    @action.bound catchError(err: Error): void {
         // if (typeof window !== 'undefined') {
         //     if (err.message == "Unauthorized") {
         //         Router.push("/login");
@@ -43,7 +43,7 @@ export class UiStore {
         console.error(err);
     }
 
-    @action.bound hideError() {
+    @action.bound hideError(): void {
         this.errorMessage = "";
     }
 }

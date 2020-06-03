@@ -15,16 +15,16 @@ class ProductStore {
         this.productsApi = productsApi;
     }
 
-    newProduct() {
+    newProduct(): void {
         this.updateProduct(Product.CreateNew())
     }
 
     @action.bound
-    updateProduct(product: Product) {
+    updateProduct(product: Product): void {
         this.product = product;
     }
 
-    async fetchProduct(uuid: string) {
+    async fetchProduct(uuid: string): Promise<void> {
         try {
             const productDto = await this.productsApi.getProduct(uuid)
             this.updateProduct(Product.FromDto(productDto))
@@ -33,7 +33,7 @@ class ProductStore {
         }
     }
 
-    async saveProduct() {
+    async saveProduct(): Promise<void> {
         if (!this.product) {
             return
         }
@@ -46,7 +46,7 @@ class ProductStore {
         }
     }
 
-    async deleteProduct(productUuid: string) {
+    async deleteProduct(productUuid: string): Promise<void> {
         try {
             await this.productsApi.deleteProduct(productUuid)
         } catch (e) {

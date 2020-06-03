@@ -5,8 +5,8 @@ import ProductViewPage from "../pages/products/view";
 import ProductNewPage from "../pages/products/new";
 import ProductEditPage from "../pages/products/edit";
 
-const ProductsNavigation = () => {
-    let match = useRouteMatch();
+const ProductsNavigation = (): JSX.Element => {
+    const match = useRouteMatch();
     return <Switch>
         <Route path={`${match.url}/new`}>
             <ProductNewPage/>

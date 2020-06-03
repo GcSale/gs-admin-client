@@ -14,8 +14,8 @@ class ProductsListStore {
 
     @observable products: ProductListItem[] = []
     @observable pageSize: number = this.defaultPageSize;
-    @observable currentPage: number = 0;
-    @observable totalPages: number = 1;
+    @observable currentPage = 0;
+    @observable totalPages = 1;
     @observable searchName?: string;
 
     constructor(rootStore: RootStore, productsApi: ProductsApi) {
@@ -23,23 +23,23 @@ class ProductsListStore {
         this.productsApi = productsApi;
     }
 
-    @computed get minPage() {
+    @computed get minPage(): number {
         return Math.max(0, this.currentPage - this.pagesAround)
     }
 
-    @computed get maxPage() {
+    @computed get maxPage(): number {
         return Math.min(this.totalPages - 1, this.currentPage + this.pagesAround)
     }
 
-    @computed get hasPrevPage() {
+    @computed get hasPrevPage(): boolean {
         return this.minPage <= 0
     }
 
-    @computed get hasNextPage() {
+    @computed get hasNextPage(): boolean {
         return this.maxPage >= this.totalPages - 1
     }
 
-    @computed get pages() {
+    @computed get pages(): number[] {
         const pages: number[] = []
         for (let i = this.minPage; i <= this.maxPage; i++) {
             pages.push(i)
@@ -47,28 +47,28 @@ class ProductsListStore {
         return pages
     }
 
-    @computed get pageRequest() {
+    @computed get pageRequest(): ProductListSearchParams {
         return {page: this.currentPage, pageSize: this.pageSize, name: this.searchName}
     }
 
     @action.bound
-    updatePageData({name, pageSize, page}: { name?: string, pageSize?: number, page?: number }) {
+    updatePageData({name, pageSize, page}: { name?: string, pageSize?: number, page?: number }): void {
         this.pageSize = pageSize || this.defaultPageSize
         this.searchName = name || ""
         this.currentPage = (page !== undefined) ? page : 0
     }
 
     @action.bound
-    updateProducts(newProducts: ProductListItem[], pageInfo: PageInfo) {
+    updateProducts(newProducts: ProductListItem[], pageInfo: PageInfo): void {
         this.products = newProducts;
         this.pageSize = pageInfo.pageSize;
         this.totalPages = pageInfo.totalPages
         this.currentPage = pageInfo.pageNumber
     }
 
-    async fetchProducts() {
+    async fetchProducts(): Promise<void> {
         try {
-            let filter: ProductListSearchParams = {
+            const filter: ProductListSearchParams = {
                 pageSize: this.pageSize,
                 name: this.searchName,
                 page: this.currentPage
