@@ -7,11 +7,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v2
+        
       - name: Set env
         run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF:11}
+        
       - uses: jerray/publish-docker-action@master
         with:
           username: ${{ secrets.GCSALE_DOCKER_REGISTRY_USERNAME }}
@@ -19,6 +21,7 @@ jobs:
           registry: docker.pkg.github.com
           repository: gcsale/gs-admin-client
           auto_tag: true
+
       - name: Send event to deploy service
         uses: peter-evans/repository-dispatch@v1
         with:
