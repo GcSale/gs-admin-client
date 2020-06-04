@@ -26,6 +26,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GCSALE_REPO_ACCESS_FULL }}
-          repository: de1mos242/little-diary-root
+          repository: GcSale/gs-kubernetes
           event-type: gs-admin-client-released
           client-payload: '{"version": "${{ env.RELEASE_VERSION }}"}'
